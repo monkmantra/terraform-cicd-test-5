@@ -1,0 +1,5 @@
+site_name: "Terraform Cloud Run for cicd-test-5"
+site_description: "This is a Terraform module for deploying docker image using Cloud Run. Test cicd-test-5"
+
+nav:
+  - Introduction: index.md
