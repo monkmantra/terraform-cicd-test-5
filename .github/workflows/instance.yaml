@@ -70,7 +70,8 @@ jobs:
       run: |-
         terraform show -json tf.plan | jq > tf.json
         result=$(echo | opa eval -f pretty -d opa/opa.rego -i tf.json "data.policy.deny")
-        if [[ $result != "[]" ]]; then
+        result2=$(echo $result | sed 's/^.\[.*\].$/\1/')
+        if [[ $result2 != "[]" ]]; then
           echo '### OPA Violation' >> $GITHUB_STEP_SUMMARY
           echo $result >> $GITHUB_STEP_SUMMARY
           exit 1
