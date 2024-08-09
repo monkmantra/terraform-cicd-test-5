@@ -72,7 +72,7 @@ jobs:
         echo "result=$result" >> $GITHUB_ENV
 
     - name: Fail in case of OPA policy violation
-      if: ${{env.result}} != "[]"
+      if: ${{ result != "[]" }}
       run: |
         echo '### OPA Violation' >> $GITHUB_STEP_SUMMARY
         echo $result >> $GITHUB_STEP_SUMMARY
