@@ -68,7 +68,7 @@ jobs:
     - name: Evaluate OPA policies
       run: |
         terraform show -json tf.plan | jq > tf.json
-        result=$(echo | opa eval -f pretty -d opa/opa.rego -i tf.json "data.terraform.allow")
+        result=$(echo | opa eval -f pretty -d opa/opa.rego -i tf.json "data.policy.allow")
         echo $result
         
     # Apply the Terraform plan
