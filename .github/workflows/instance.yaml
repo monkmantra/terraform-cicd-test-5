@@ -68,7 +68,7 @@ jobs:
     - name: Evaluate OPA policies
       run: |
         terraform show -json tf.plan | jq > tf.json
-        opa eval -f pretty -d opa/ -i tf.json "data.terraform.allow"
+        opa eval -f pretty -d opa/ -i tf.json "data.terraform.allowed_region"
       
     # Apply the Terraform plan
     - name: Terraform Apply
